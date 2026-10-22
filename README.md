@@ -6,8 +6,11 @@ manifest, and a GitHub Actions workflow.
 ## CI pipeline
 
 Every push to `main` checks out the project, configures Docker Buildx, and
-builds the Docker image. The workflow is intentionally configured without
-Docker Hub credentials, so it can run successfully without repository secrets.
+builds and publishes the Docker image as
+`RiyaKhialani/sample-web-app:v1.0.<run-number>`.
+
+The repository must contain an Actions secret named `DOCKERHUB_TOKEN`. Store a
+Docker Hub access token there; never commit it to the repository.
 
 ## Kubernetes deployment
 
